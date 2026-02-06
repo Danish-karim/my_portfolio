@@ -60,7 +60,7 @@ const About = () => {
               <p>
                 I&apos;m passionate about mentoring junior developers, achieving
                 high test coverage, and implementing best practices. I&apos;m
-                also expanding my backend toolkit — I&apos;ve completed Python
+                also expanding my backend toolkit. I&apos;ve completed Python
                 fundamentals and successfully migrated an application from
                 Node.js to FastAPI, demonstrating my ability to adapt and
                 deliver across different technology stacks.

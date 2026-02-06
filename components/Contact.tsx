@@ -54,9 +54,25 @@ const Contact = () => {
             </span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary-600 to-primary-400 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
             Let&apos;s work together to bring your ideas to life
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a
+              href="mailto:danishkarim96@gmail.com?subject=Project%20Quote%20Request"
+              className="px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-500 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 inline-flex items-center gap-2"
+            >
+              <Mail className="w-5 h-5" />
+              Get a Free Project Quote
+            </a>
+            <a
+              href="mailto:danishkarim96@gmail.com?subject=Free%20Consultation%20Request"
+              className="px-8 py-4 bg-white text-primary-600 border-2 border-primary-600 rounded-lg font-semibold hover:bg-primary-50 transform hover:scale-105 transition-all duration-200 inline-flex items-center gap-2"
+            >
+              <MessageCircle className="w-5 h-5" />
+              Schedule a Free Consultation
+            </a>
+          </div>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -144,10 +160,15 @@ const Contact = () => {
                 Ready to Start a Project?
               </h3>
               <p className="opacity-95 leading-relaxed mb-6">
-                Whether you have a project in mind or just want to chat about
-                possibilities, I&apos;d love to hear from you. Let&apos;s create
-                something amazing together!
+                Get a free quote or book a short call to discuss your goals. No
+                commitment. Just a clear next step for your project.
               </p>
+              <a
+                href="mailto:danishkarim96@gmail.com?subject=Let's%20talk%20about%20my%20project"
+                className="inline-block px-6 py-3 bg-white text-primary-600 rounded-lg font-semibold hover:bg-primary-50 transition-colors"
+              >
+                Start the conversation →
+              </a>
             </div>
 
             <div className="space-y-4">

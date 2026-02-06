@@ -67,10 +67,14 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 max-w-4xl mx-auto leading-tight"
           >
-            <span className="bg-gradient-to-r from-primary-600 via-primary-500 to-primary-400 bg-clip-text text-transparent">
-              Danish Karim
+            <span className="text-gray-800">
+              I build{" "}
+              <span className="bg-gradient-to-r from-primary-600 via-primary-500 to-primary-400 bg-clip-text text-transparent">
+                scalable web apps
+              </span>{" "}
+              that help businesses improve efficiency and scale
             </span>
           </motion.h1>
 
@@ -78,9 +82,9 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-lg md:text-xl lg:text-2xl text-gray-700 mb-3 font-medium"
+            className="text-lg md:text-xl text-gray-600 mb-1 font-medium"
           >
-            Senior Full Stack Developer
+            Danish Karim · Senior Full Stack Developer
           </motion.p>
 
           <motion.p
@@ -89,9 +93,8 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="text-base md:text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed"
           >
-            Full Stack Developer with 6+ years of experience building scalable
-            web applications. Specialized in MERN stack development and AWS
-            Amplify. Delivering robust solutions and optimized performance.
+            6+ years delivering secure, high-performance systems so your
+            business can scale with confidence.
           </motion.p>
 
           <motion.div
@@ -104,13 +107,13 @@ const Hero = () => {
               href="#contact"
               className="px-8 py-3 bg-gradient-to-r from-primary-600 to-primary-500 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
             >
-              Get In Touch
+              Get a Free Project Quote
             </a>
             <a
               href="#projects"
               className="px-8 py-3 bg-white text-primary-600 border-2 border-primary-600 rounded-lg font-semibold hover:bg-primary-50 transform hover:scale-105 transition-all duration-200"
             >
-              View My Work
+              See Proof of Impact
             </a>
           </motion.div>
         </motion.div>
