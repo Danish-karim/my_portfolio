@@ -44,8 +44,7 @@ const Projects = () => {
       title: "MicroInvesting - Investment Platform",
       description:
         "Architected investing platform using AWS CDK, enabling 1,000+ users to trade shares via CacheInvest API. Designed RESTful APIs with 95% uptime for share switching/withdrawals.",
-      image:
-        "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop",
+      image: "/images/projects/microinvesting/3.png",
       category: "Full Stack",
       technologies: [
         "AWS CDK",
