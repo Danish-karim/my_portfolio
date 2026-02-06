@@ -1,7 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Menu, X, ChevronDown } from "lucide-react";
+
+const hireLinks = [
+  { name: "Fiverr", url: "https://www.fiverr.com/s/XLAwzQD" },
+  {
+    name: "Upwork",
+    url: "https://www.upwork.com/freelancers/~01d311f220d3e561f1?mp_source=share",
+  },
+];
 
 const navItems = [
   { name: "Home", href: "#home", id: "home" },
@@ -17,7 +25,22 @@ const navItems = [
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isHireDropdownOpen, setIsHireDropdownOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsHireDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,7 +82,7 @@ const Navigation = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex md:items-center md:gap-6">
             <div className="ml-10 flex items-baseline space-x-8">
               {navItems.map((item) => (
                 <a
@@ -74,6 +97,33 @@ const Navigation = () => {
                   {item.name}
                 </a>
               ))}
+            </div>
+            <div className="ml-4 relative" ref={dropdownRef}>
+              <button
+                onClick={() => setIsHireDropdownOpen(!isHireDropdownOpen)}
+                className="flex items-center gap-1 px-5 py-2 bg-primary-600 text-white rounded-lg font-semibold text-sm hover:bg-primary-700 transition-colors duration-200 shadow-md hover:shadow-lg"
+              >
+                Hire Me
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform ${isHireDropdownOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+              {isHireDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-40 py-1 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
+                  {hireLinks.map((link) => (
+                    <a
+                      key={link.name}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setIsHireDropdownOpen(false)}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600"
+                    >
+                      {link.name}
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 
@@ -111,6 +161,25 @@ const Navigation = () => {
                 {item.name}
               </a>
             ))}
+            <div className="px-3 pt-3 space-y-2">
+              {hireLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block px-4 py-3 rounded-lg font-semibold text-center transition-colors duration-200 hover:opacity-90"
+                  style={{
+                    backgroundColor:
+                      link.name === "Fiverr" ? "#1dbf73" : "#14a800",
+                    color: "white",
+                  }}
+                >
+                  Hire on {link.name}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       )}

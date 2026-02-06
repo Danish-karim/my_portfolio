@@ -104,8 +104,24 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <a
-              href="#contact"
+              href="https://www.fiverr.com/s/XLAwzQD"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-3 bg-gradient-to-r from-primary-600 to-primary-500 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+            >
+              Hire on Fiverr
+            </a>
+            <a
+              href="https://www.upwork.com/freelancers/~01d311f220d3e561f1?mp_source=share"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-3 bg-[#14a800] text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 hover:bg-[#108a00]"
+            >
+              Hire on Upwork
+            </a>
+            <a
+              href="#contact"
+              className="px-8 py-3 bg-white text-primary-600 border-2 border-primary-600 rounded-lg font-semibold hover:bg-primary-50 transform hover:scale-105 transition-all duration-200"
             >
               Get a Free Project Quote
             </a>
