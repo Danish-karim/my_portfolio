@@ -55,7 +55,7 @@ const Contact = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary-600 to-primary-400 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Let's work together to bring your ideas to life
+            Let&apos;s work together to bring your ideas to life
           </p>
         </motion.div>
 
@@ -67,12 +67,12 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
           >
             <h3 className="text-3xl font-bold mb-6 text-gray-800">
-              Let's Connect
+              Let&apos;s Connect
             </h3>
             <p className="text-gray-600 mb-8 leading-relaxed">
-              I'm always open to discussing new projects, creative ideas, or
-              opportunities to be part of your visions. Feel free to reach out
-              through any of the platforms below or send me a message.
+              I&apos;m always open to discussing new projects, creative ideas,
+              or opportunities to be part of your visions. Feel free to reach
+              out through any of the platforms below or send me a message.
             </p>
 
             <div className="space-y-4 mb-8">
@@ -145,8 +145,8 @@ const Contact = () => {
               </h3>
               <p className="opacity-95 leading-relaxed mb-6">
                 Whether you have a project in mind or just want to chat about
-                possibilities, I'd love to hear from you. Let's create something
-                amazing together!
+                possibilities, I&apos;d love to hear from you. Let&apos;s create
+                something amazing together!
               </p>
             </div>
 

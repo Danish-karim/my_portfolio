@@ -43,14 +43,14 @@ const About = () => {
             <h3 className="text-3xl font-bold mb-6 text-gray-800">Who I Am</h3>
             <div className="space-y-4 text-gray-600 leading-relaxed">
               <p>
-                I'm a Senior Full Stack Developer with 6+ years of experience
-                building scalable web applications and collaborating with
-                technical teams. I specialize in MERN stack development and AWS
-                Amplify, delivering robust solutions that optimize performance
-                and maintain hands-on coding contributions.
+                I&apos;m a Senior Full Stack Developer with 6+ years of
+                experience building scalable web applications and collaborating
+                with technical teams. I specialize in MERN stack development and
+                AWS Amplify, delivering robust solutions that optimize
+                performance and maintain hands-on coding contributions.
               </p>
               <p>
-                Throughout my career, I've engineered scalable medical
+                Throughout my career, I&apos;ve engineered scalable medical
                 applications serving 20+ clinics, developed winery management
                 platforms, architected investing platforms, and built research
                 collaboration tools. My work focuses on creating applications
@@ -58,12 +58,12 @@ const About = () => {
                 performance expectations.
               </p>
               <p>
-                I'm passionate about mentoring junior developers, achieving high
-                test coverage, and implementing best practices. I'm also
-                expanding my backend toolkit, I've completed Python fundamentals
-                and successfully migrated an application from Node.js to
-                FastAPI, demonstrating my ability to adapt and deliver across
-                different technology stacks.
+                I&apos;m passionate about mentoring junior developers, achieving
+                high test coverage, and implementing best practices. I&apos;m
+                also expanding my backend toolkit — I&apos;ve completed Python
+                fundamentals and successfully migrated an application from
+                Node.js to FastAPI, demonstrating my ability to adapt and
+                deliver across different technology stacks.
               </p>
             </div>
           </motion.div>
@@ -104,10 +104,10 @@ const About = () => {
           <h3 className="text-2xl md:text-3xl font-bold mb-4">My Mission</h3>
           <p className="text-lg md:text-xl leading-relaxed opacity-95">
             To deliver high-quality, scalable solutions that exceed client
-            expectations. I'm committed to optimizing performance, achieving
-            high test coverage, and mentoring the next generation of developers.
-            My goal is to build applications that make a real impact while
-            maintaining code quality and best practices.
+            expectations. I&apos;m committed to optimizing performance,
+            achieving high test coverage, and mentoring the next generation of
+            developers. My goal is to build applications that make a real impact
+            while maintaining code quality and best practices.
           </p>
         </motion.div>
       </div>
