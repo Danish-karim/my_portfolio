@@ -236,7 +236,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="py-20 md:py-32 bg-gradient-to-br from-primary-50 to-white"
+      className="py-20 md:py-32 bg-gradient-to-br from-primary-50 to-white dark:from-slate-900 dark:to-slate-900"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -252,7 +252,7 @@ const Projects = () => {
             </span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary-600 to-primary-400 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+          <p className="text-lg text-gray-600 dark:text-slate-400 max-w-3xl mx-auto mb-8">
             Real problems solved, with measurable results for businesses
           </p>
 
@@ -281,13 +281,13 @@ const Projects = () => {
             transition={{ duration: 0.5 }}
             className="flex flex-col items-center justify-center py-16 px-6 text-center"
           >
-            <div className="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mb-4">
-              <FolderOpen className="w-8 h-8 text-primary-600" />
+            <div className="w-16 h-16 rounded-full bg-primary-100 dark:bg-primary-900/50 flex items-center justify-center mb-4">
+              <FolderOpen className="w-8 h-8 text-primary-600 dark:text-primary-400" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">
+            <h3 className="text-xl font-semibold text-gray-800 dark:text-slate-100 mb-2">
               No projects found
             </h3>
-            <p className="text-gray-600 max-w-md mb-6">
+            <p className="text-gray-600 dark:text-slate-400 max-w-md mb-6">
               There are no projects in the &quot;{selectedCategory}&quot;
               category yet. Try selecting another filter to view available
               projects.
@@ -311,7 +311,7 @@ const Projects = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-left w-full"
+                  className="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-left w-full"
                 >
                   <div className="relative h-48 overflow-hidden">
                     <Image
@@ -328,15 +328,15 @@ const Projects = () => {
                     </div>
                   </div>
                   <div className="p-5">
-                    <h3 className="text-lg font-bold text-gray-800 mb-1">
+                    <h3 className="text-lg font-bold text-gray-800 dark:text-slate-100 mb-1">
                       {project.title}
                     </h3>
                     {project.period && (
-                      <p className="text-xs text-primary-600 font-medium mb-2">
+                      <p className="text-xs text-primary-600 dark:text-primary-400 font-medium mb-2">
                         {project.period}
                       </p>
                     )}
-                    <p className="text-sm text-gray-600 leading-snug line-clamp-2">
+                    <p className="text-sm text-gray-600 dark:text-slate-400 leading-snug line-clamp-2">
                       {getProjectTeaser(project)}
                     </p>
                   </div>
@@ -380,21 +380,21 @@ const Projects = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.2 }}
-                className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] flex flex-col overflow-hidden"
+                className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] flex flex-col overflow-hidden"
                 onClick={(e) => e.stopPropagation()}
               >
                 {/* Modal header with close */}
-                <div className="flex items-center justify-between p-4 border-b border-gray-100 flex-shrink-0">
+                <div className="flex items-center justify-between p-4 border-b border-gray-100 dark:border-slate-700 flex-shrink-0">
                   <div>
-                    <h3 className="text-xl font-bold text-gray-800">
+                    <h3 className="text-xl font-bold text-gray-800 dark:text-slate-100">
                       {selectedProject.title}
                     </h3>
                     <div className="flex items-center gap-2 mt-1">
-                      <span className="text-xs bg-primary-100 text-primary-700 px-2 py-0.5 rounded-full">
+                      <span className="text-xs bg-primary-100 dark:bg-primary-900/50 text-primary-700 dark:text-primary-300 px-2 py-0.5 rounded-full">
                         {selectedProject.category}
                       </span>
                       {selectedProject.period && (
-                        <span className="text-xs text-gray-500">
+                        <span className="text-xs text-gray-500 dark:text-slate-400">
                           {selectedProject.period}
                         </span>
                       )}
@@ -404,14 +404,14 @@ const Projects = () => {
                     type="button"
                     onClick={() => setSelectedProject(null)}
                     aria-label="Close"
-                    className="p-2 rounded-full hover:bg-gray-100 text-gray-600 hover:text-gray-800 transition-colors"
+                    className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-600 dark:text-slate-400 hover:text-gray-800 dark:hover:text-slate-100 transition-colors"
                   >
                     <X className="w-6 h-6" />
                   </button>
                 </div>
 
                 {/* Image gallery */}
-                <div className="relative bg-gray-100 flex-shrink-0">
+                <div className="relative bg-gray-100 dark:bg-slate-800 flex-shrink-0">
                   <div className="relative h-64 md:h-80 w-full">
                     <Image
                       src={
@@ -479,26 +479,26 @@ const Projects = () => {
                     selectedProject.result && (
                       <div className="space-y-4 text-sm">
                         <div>
-                          <p className="font-semibold text-primary-700 mb-1">
+                          <p className="font-semibold text-primary-700 dark:text-primary-400 mb-1">
                             Challenge
                           </p>
-                          <p className="text-gray-700 leading-relaxed">
+                          <p className="text-gray-700 dark:text-slate-300 leading-relaxed">
                             {selectedProject.challenge}
                           </p>
                         </div>
                         <div>
-                          <p className="font-semibold text-primary-700 mb-1">
+                          <p className="font-semibold text-primary-700 dark:text-primary-400 mb-1">
                             Solution
                           </p>
-                          <p className="text-gray-700 leading-relaxed">
+                          <p className="text-gray-700 dark:text-slate-300 leading-relaxed">
                             {selectedProject.solution}
                           </p>
                         </div>
                         <div>
-                          <p className="font-semibold text-primary-700 mb-1">
+                          <p className="font-semibold text-primary-700 dark:text-primary-400 mb-1">
                             Result
                           </p>
-                          <p className="text-gray-700 leading-relaxed">
+                          <p className="text-gray-700 dark:text-slate-300 leading-relaxed">
                             {selectedProject.result}
                           </p>
                         </div>
@@ -546,7 +546,7 @@ const Projects = () => {
                           href={selectedProject.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-gray-600 hover:text-gray-700 font-medium text-sm"
+                          className="flex items-center gap-2 text-gray-600 dark:text-slate-400 hover:text-gray-700 dark:hover:text-slate-300 font-medium text-sm"
                         >
                           <Github className="w-4 h-4" />
                           Code

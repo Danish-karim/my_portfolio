@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Sun, Moon } from "lucide-react";
+import { useTheme } from "@/components/ThemeProvider";
 
 const hireLinks = [
   { name: "Fiverr", url: "https://www.fiverr.com/s/XLAwzQD" },
@@ -23,6 +24,7 @@ const navItems = [
 ];
 
 const Navigation = () => {
+  const { theme, toggleTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isHireDropdownOpen, setIsHireDropdownOpen] = useState(false);
@@ -67,7 +69,9 @@ const Navigation = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-transparent"
+        isScrolled
+          ? "bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-lg"
+          : "bg-transparent dark:bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -91,17 +95,28 @@ const Navigation = () => {
                   className={`px-3 py-2 text-sm font-medium transition-colors duration-200 ${
                     activeSection === item.id
                       ? "text-primary-600 font-semibold"
-                      : "text-gray-700 hover:text-primary-600"
+                      : "text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
                   }`}
                 >
                   {item.name}
                 </a>
               ))}
             </div>
-            <div className="ml-4 relative" ref={dropdownRef}>
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === "light" ? (
+                <Moon className="w-5 h-5" />
+              ) : (
+                <Sun className="w-5 h-5" />
+              )}
+            </button>
+            <div className="ml-2 relative" ref={dropdownRef}>
               <button
                 onClick={() => setIsHireDropdownOpen(!isHireDropdownOpen)}
-                className="flex items-center gap-1 px-5 py-2 bg-primary-600 text-white rounded-lg font-semibold text-sm hover:bg-primary-700 transition-colors duration-200 shadow-md hover:shadow-lg"
+                className="flex items-center gap-1 px-5 py-2 bg-primary-600 text-white rounded-lg font-semibold text-sm hover:bg-primary-700 transition-colors duration-200 shadow-md hover:shadow-lg whitespace-nowrap"
               >
                 Hire Me
                 <ChevronDown
@@ -109,7 +124,7 @@ const Navigation = () => {
                 />
               </button>
               {isHireDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-40 py-1 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
+                <div className="absolute right-0 mt-2 w-40 py-1 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-gray-200 dark:border-slate-700 z-50">
                   {hireLinks.map((link) => (
                     <a
                       key={link.name}
@@ -117,7 +132,7 @@ const Navigation = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => setIsHireDropdownOpen(false)}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600"
+                      className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-slate-700 hover:text-primary-600 dark:hover:text-primary-400"
                     >
                       {link.name}
                     </a>
@@ -127,11 +142,22 @@ const Navigation = () => {
             </div>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
+          {/* Mobile menu button + theme toggle */}
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800"
+              aria-label="Toggle theme"
+            >
+              {theme === "light" ? (
+                <Moon className="w-5 h-5" />
+              ) : (
+                <Sun className="w-5 h-5" />
+              )}
+            </button>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-gray-700 hover:text-primary-600 focus:outline-none"
+              className="text-gray-700 dark:text-gray-300 hover:text-primary-600 focus:outline-none"
             >
               {isMobileMenuOpen ? (
                 <X className="h-6 w-6" />
@@ -145,7 +171,7 @@ const Navigation = () => {
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t">
+        <div className="md:hidden bg-white dark:bg-slate-900 border-t dark:border-slate-700">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navItems.map((item) => (
               <a
@@ -154,8 +180,8 @@ const Navigation = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={`block px-3 py-2 text-base font-medium transition-colors duration-200 ${
                   activeSection === item.id
-                    ? "text-primary-600 font-semibold bg-primary-50 rounded-lg"
-                    : "text-gray-700 hover:text-primary-600"
+                    ? "text-primary-600 font-semibold bg-primary-50 dark:bg-slate-800 rounded-lg"
+                    : "text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
                 }`}
               >
                 {item.name}

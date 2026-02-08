@@ -39,7 +39,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-white">
+    <section id="contact" className="py-20 md:py-32 bg-white dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -54,7 +54,7 @@ const Contact = () => {
             </span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary-600 to-primary-400 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
+          <p className="text-lg text-gray-600 dark:text-slate-400 max-w-3xl mx-auto mb-6">
             Let&apos;s work together to bring your ideas to life
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -82,10 +82,10 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-3xl font-bold mb-6 text-gray-800">
+            <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-slate-100">
               Let&apos;s Connect
             </h3>
-            <p className="text-gray-600 mb-8 leading-relaxed">
+            <p className="text-gray-600 dark:text-slate-400 mb-8 leading-relaxed">
               I&apos;m always open to discussing new projects, creative ideas,
               or opportunities to be part of your visions. Feel free to reach
               out through any of the platforms below or send me a message.
@@ -94,34 +94,40 @@ const Contact = () => {
             <div className="space-y-4 mb-8">
               <a
                 href="mailto:danishkarim96@gmail.com"
-                className="flex items-center gap-4 p-4 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors duration-200"
+                className="flex items-center gap-4 p-4 bg-primary-50 dark:bg-primary-900/30 rounded-lg hover:bg-primary-100 dark:hover:bg-primary-900/50 transition-colors duration-200"
               >
                 <div className="bg-primary-600 p-3 rounded-lg">
                   <Mail className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <div className="font-semibold text-gray-800">Email</div>
-                  <div className="text-gray-600 text-sm">
+                  <div className="font-semibold text-gray-800 dark:text-slate-100">
+                    Email
+                  </div>
+                  <div className="text-gray-600 dark:text-slate-400 text-sm">
                     danishkarim96@gmail.com
                   </div>
                 </div>
               </a>
               <a
                 href="tel:+923489944496"
-                className="flex items-center gap-4 p-4 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors duration-200"
+                className="flex items-center gap-4 p-4 bg-primary-50 dark:bg-primary-900/30 rounded-lg hover:bg-primary-100 dark:hover:bg-primary-900/50 transition-colors duration-200"
               >
                 <div className="bg-primary-600 p-3 rounded-lg">
                   <Phone className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <div className="font-semibold text-gray-800">Phone</div>
-                  <div className="text-gray-600 text-sm">+92 3489944496</div>
+                  <div className="font-semibold text-gray-800 dark:text-slate-100">
+                    Phone
+                  </div>
+                  <div className="text-gray-600 dark:text-slate-400 text-sm">
+                    +92 3489944496
+                  </div>
                 </div>
               </a>
             </div>
 
             <div>
-              <h4 className="text-xl font-semibold mb-4 text-gray-800">
+              <h4 className="text-xl font-semibold mb-4 text-gray-800 dark:text-slate-100">
                 Find me on
               </h4>
               <div className="flex flex-wrap gap-4">
@@ -190,9 +196,9 @@ const Contact = () => {
       </div>
 
       {/* Footer */}
-      <footer className="mt-20 pt-8 border-t border-gray-200">
+      <footer className="mt-20 pt-8 border-t border-gray-200 dark:border-slate-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center text-gray-600">
+          <div className="text-center text-gray-600 dark:text-slate-400">
             <p>
               © {new Date().getFullYear()} Danish Karim. All rights reserved.
             </p>

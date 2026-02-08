@@ -12,7 +12,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 md:py-32 bg-white">
+    <section id="about" className="py-20 md:py-32 bg-white dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -27,7 +27,7 @@ const About = () => {
             </span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary-600 to-primary-400 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-slate-400 max-w-3xl mx-auto">
             Senior Full Stack Developer with 6+ years of experience specializing
             in MERN stack and AWS Amplify
           </p>
@@ -40,8 +40,10 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-3xl font-bold mb-6 text-gray-800">Who I Am</h3>
-            <div className="space-y-4 text-gray-600 leading-relaxed">
+            <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-slate-100">
+              Who I Am
+            </h3>
+            <div className="space-y-4 text-gray-600 dark:text-slate-400 leading-relaxed">
               <p>
                 I&apos;m a Senior Full Stack Developer with 6+ years of
                 experience building scalable web applications and collaborating
@@ -82,13 +84,15 @@ const About = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-gradient-to-br from-primary-50 to-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="bg-gradient-to-br from-primary-50 to-white dark:from-slate-800 dark:to-slate-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
                 <stat.icon className="w-8 h-8 text-primary-600 mb-4" />
                 <div className="text-3xl font-bold text-primary-600 mb-2">
                   {stat.number}
                 </div>
-                <div className="text-sm text-gray-600">{stat.label}</div>
+                <div className="text-sm text-gray-600 dark:text-slate-400">
+                  {stat.label}
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -99,7 +103,7 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-gradient-to-r from-primary-600 to-primary-500 rounded-2xl p-8 md:p-12 text-white"
+          className="bg-gradient-to-r from-primary-600 to-primary-500 dark:from-primary-700 dark:to-primary-600 rounded-2xl p-8 md:p-12 text-white"
         >
           <h3 className="text-2xl md:text-3xl font-bold mb-4">My Mission</h3>
           <p className="text-lg md:text-xl leading-relaxed opacity-95">

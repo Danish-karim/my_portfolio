@@ -50,7 +50,10 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 md:py-32 bg-white">
+    <section
+      id="experience"
+      className="py-20 md:py-32 bg-white dark:bg-slate-900"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -65,14 +68,14 @@ const Experience = () => {
             </span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary-600 to-primary-400 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-slate-400 max-w-3xl mx-auto">
             Building scalable applications and delivering impactful solutions
           </p>
         </motion.div>
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-200 via-primary-400 to-primary-200 transform md:-translate-x-1/2"></div>
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-200 via-primary-400 to-primary-200 dark:from-primary-900 dark:via-primary-600 dark:to-primary-900 transform md:-translate-x-1/2"></div>
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (
@@ -87,7 +90,7 @@ const Experience = () => {
                 }`}
               >
                 {/* Timeline dot */}
-                <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-primary-600 rounded-full border-4 border-white shadow-lg transform md:-translate-x-1/2 z-10"></div>
+                <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-primary-600 rounded-full border-4 border-white dark:border-slate-900 shadow-lg transform md:-translate-x-1/2 z-10"></div>
 
                 {/* Content */}
                 <div
@@ -97,20 +100,20 @@ const Experience = () => {
                       : "md:ml-auto md:pl-8"
                   }`}
                 >
-                  <div className="bg-gradient-to-br from-white to-primary-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <div className="bg-gradient-to-br from-white to-primary-50 dark:from-slate-800 dark:to-slate-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
                     <div className="flex items-start justify-between mb-4">
                       <div>
-                        <h3 className="text-xl font-bold text-gray-800 mb-1">
+                        <h3 className="text-xl font-bold text-gray-800 dark:text-slate-100 mb-1">
                           {exp.position}
                         </h3>
-                        <h4 className="text-lg font-semibold text-primary-600 mb-2">
+                        <h4 className="text-lg font-semibold text-primary-600 dark:text-primary-400 mb-2">
                           {exp.company}
                         </h4>
                       </div>
                       <Briefcase className="w-6 h-6 text-primary-400" />
                     </div>
 
-                    <div className="flex items-center gap-4 mb-4 text-sm text-gray-600">
+                    <div className="flex items-center gap-4 mb-4 text-sm text-gray-600 dark:text-slate-400">
                       <div className="flex items-center gap-2">
                         <Calendar className="w-4 h-4" />
                         <span>{exp.period}</span>
@@ -125,9 +128,11 @@ const Experience = () => {
                       {exp.description.map((item, itemIndex) => (
                         <li
                           key={itemIndex}
-                          className="text-gray-600 text-sm leading-relaxed flex items-start gap-2"
+                          className="text-gray-600 dark:text-slate-400 text-sm leading-relaxed flex items-start gap-2"
                         >
-                          <span className="text-primary-600 mt-1">•</span>
+                          <span className="text-primary-600 dark:text-primary-400 mt-1">
+                            •
+                          </span>
                           <span>{item}</span>
                         </li>
                       ))}

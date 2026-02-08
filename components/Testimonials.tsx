@@ -84,7 +84,7 @@ const Testimonials = () => {
   return (
     <section
       id="testimonials"
-      className="py-20 md:py-32 bg-white border-t border-gray-100"
+      className="py-20 md:py-32 bg-white dark:bg-slate-900 border-t border-gray-100 dark:border-slate-800"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -100,7 +100,7 @@ const Testimonials = () => {
             </span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary-600 to-primary-400 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-slate-400 max-w-3xl mx-auto">
             Feedback from clients and colleagues I&apos;ve worked with
           </p>
         </motion.div>
@@ -116,7 +116,7 @@ const Testimonials = () => {
               type="button"
               onClick={goPrev}
               aria-label="Previous testimonials"
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1 md:-translate-x-3 z-10 w-12 h-12 rounded-full bg-white shadow-xl border border-primary-100 flex items-center justify-center text-primary-600 hover:bg-primary-600 hover:text-white hover:border-primary-600 transition-all duration-200"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1 md:-translate-x-3 z-10 w-12 h-12 rounded-full bg-white dark:bg-slate-800 shadow-xl border border-primary-100 dark:border-slate-600 flex items-center justify-center text-primary-600 dark:text-primary-400 hover:bg-primary-600 hover:text-white hover:border-primary-600 transition-all duration-200"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
@@ -124,7 +124,7 @@ const Testimonials = () => {
               type="button"
               onClick={goNext}
               aria-label="Next testimonials"
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1 md:translate-x-3 z-10 w-12 h-12 rounded-full bg-white shadow-xl border border-primary-100 flex items-center justify-center text-primary-600 hover:bg-primary-600 hover:text-white hover:border-primary-600 transition-all duration-200"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1 md:translate-x-3 z-10 w-12 h-12 rounded-full bg-white dark:bg-slate-800 shadow-xl border border-primary-100 dark:border-slate-600 flex items-center justify-center text-primary-600 dark:text-primary-400 hover:bg-primary-600 hover:text-white hover:border-primary-600 transition-all duration-200"
             >
               <ChevronRight className="w-6 h-6" />
             </button>
@@ -143,17 +143,17 @@ const Testimonials = () => {
                   {currentItems.map((item, index) => (
                     <div
                       key={`${currentSlide}-${item.name}-${index}`}
-                      className="bg-white rounded-2xl p-6 shadow-md border border-gray-100"
+                      className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-md border border-gray-100 dark:border-slate-700"
                     >
                       <Quote className="w-9 h-9 text-primary-400 mb-3" />
-                      <p className="text-gray-700 text-sm leading-relaxed italic mb-4">
+                      <p className="text-gray-700 dark:text-slate-300 text-sm leading-relaxed italic mb-4">
                         &ldquo;{item.quote}&rdquo;
                       </p>
-                      <div className="pt-4 border-t border-gray-100">
-                        <p className="font-semibold text-gray-800">
+                      <div className="pt-4 border-t border-gray-100 dark:border-slate-700">
+                        <p className="font-semibold text-gray-800 dark:text-slate-100">
                           {item.name}
                         </p>
-                        <p className="text-xs text-gray-500">{item.role}</p>
+                        <p className="text-xs text-gray-500 dark:text-slate-400">{item.role}</p>
                       </div>
                     </div>
                   ))}
@@ -173,7 +173,7 @@ const Testimonials = () => {
                 className={`h-2 rounded-full transition-all duration-200 ${
                   i === currentSlide
                     ? "w-8 bg-primary-600"
-                    : "w-2 bg-primary-200 hover:bg-primary-300"
+                    : "w-2 bg-primary-200 dark:bg-primary-800 hover:bg-primary-300 dark:hover:bg-primary-700"
                 }`}
               />
             ))}

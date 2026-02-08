@@ -32,7 +32,10 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 md:py-32 bg-white">
+    <section
+      id="services"
+      className="py-20 md:py-32 bg-white dark:bg-slate-900"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -47,7 +50,7 @@ const Services = () => {
             </span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary-600 to-primary-400 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-slate-400 max-w-3xl mx-auto">
             Comprehensive solutions for all your development needs
           </p>
         </motion.div>
@@ -60,15 +63,15 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-gradient-to-br from-white to-primary-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+              className="bg-gradient-to-br from-white to-primary-50 dark:from-slate-800 dark:to-slate-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
             >
-              <div className="bg-primary-100 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
-                <service.icon className="w-7 h-7 text-primary-600" />
+              <div className="bg-primary-100 dark:bg-primary-900/50 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                <service.icon className="w-7 h-7 text-primary-600 dark:text-primary-400" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-800">
+              <h3 className="text-xl font-bold mb-3 text-gray-800 dark:text-slate-100">
                 {service.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 dark:text-slate-400 leading-relaxed">
                 {service.description}
               </p>
             </motion.div>
