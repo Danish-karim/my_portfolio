@@ -9,6 +9,7 @@ import {
   Phone,
   Github,
 } from "lucide-react";
+import { SiFi, SiUpwork } from "@icons-pack/react-simple-icons";
 
 const Contact = () => {
   const socialLinks = [
@@ -27,13 +28,13 @@ const Contact = () => {
     {
       name: "Fiverr",
       url: "https://www.fiverr.com/s/XLAwzQD",
-      icon: ExternalLink,
+      icon: SiFi,
       color: "from-green-500 to-green-600",
     },
     {
       name: "Upwork",
       url: "https://www.upwork.com/freelancers/~01d311f220d3e561f1?mp_source=share",
-      icon: ExternalLink,
+      icon: SiUpwork,
       color: "from-green-600 to-green-700",
     },
   ];
@@ -145,7 +146,7 @@ const Contact = () => {
                     whileTap={{ scale: 0.95 }}
                     className={`bg-gradient-to-r ${social.color} text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200 flex items-center gap-2`}
                   >
-                    <social.icon className="w-5 h-5" />
+                    <social.icon className="w-5 h-5 shrink-0 fill-white" />
                     {social.name}
                   </motion.a>
                 ))}

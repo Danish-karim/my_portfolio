@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { SiFi, SiUpwork } from "@icons-pack/react-simple-icons";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -107,16 +108,18 @@ const Hero = () => {
               href="https://www.fiverr.com/s/XLAwzQD"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 bg-gradient-to-r from-primary-600 to-primary-500 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+              className="px-8 py-3 bg-[#1DBF73] text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 hover:bg-[#19a463] inline-flex items-center gap-2"
             >
+              <SiFi size={20} color="white" />
               Hire on Fiverr
             </a>
             <a
               href="https://www.upwork.com/freelancers/~01d311f220d3e561f1?mp_source=share"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 bg-[#14a800] text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 hover:bg-[#108a00]"
+              className="px-8 py-3 bg-[#14a800] text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 hover:bg-[#108a00] inline-flex items-center gap-2"
             >
+              <SiUpwork size={20} color="white" />
               Hire on Upwork
             </a>
             <a

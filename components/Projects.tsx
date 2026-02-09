@@ -11,6 +11,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 type Project = {
@@ -26,6 +27,10 @@ type Project = {
   liveUrl: string;
   githubUrl: string;
   period?: string;
+  caseStudy?: boolean;
+  caseStudySlug?: string;
+  /** Optional short teaser for the card (e.g. problem → result in ≤120 chars) */
+  cardTeaser?: string;
 };
 
 const Projects = () => {
@@ -38,11 +43,11 @@ const Projects = () => {
     {
       title: "CloudHolter - Medical Application",
       challenge:
-        "Clinics needed a faster way to process patient data and alert specialists for critical cardiac cases.",
+        "A cardiac diagnostics provider was managing Holter cases across multiple clinics with spreadsheets and email: referrals, EDF uploads, report handling, and billing were manual and fragmented. There was no single view of equipment, case status, or who was doing what. They needed a unified, auditable workflow that could scale as they added clinics and clinicians.",
       solution:
-        "I built a secure, cloud-based platform for real-time patient monitoring with Slack alerts and a scalable admin for 20+ clinics.",
+        "I built CloudHolter on AWS so the whole Holter lifecycle lives in one place: clinic and equipment setup, checkout, referral and EDF upload (including upload links), automated status progression via S3 triggers, and cardiologist review and sign-off. Role-based dashboards, clinic and cardiologist invoicing, and Medicare batch/reconciliation reduce manual work. Real-time updates use GraphQL subscriptions; the UI is React/TypeScript with Ant Design and E2E tests in Cypress.",
       result:
-        "Reduced critical reporting delays by 30% and cut bugs by 40% through rigorous testing, helping cardiologists make faster decisions.",
+        "Operations now run on one platform: unified pipeline for clinics and techs, dashboards and search for management, and in-app billing and Medicare handling. Equipment and file flows are traceable; real-time status updates cut down back-and-forth. The system supports growth in clinics and users on the same architecture.",
       image:
         "/images/projects/CRD/screencapture-devv2-cardiacrhythmdiagnostics-dashboard-2024-04-24-10_44_46.png",
       images: [
@@ -57,25 +62,32 @@ const Projects = () => {
       ],
       category: "Full Stack",
       technologies: [
-        "React.js",
+        "React",
+        "TypeScript",
+        "Ant Design",
         "AWS Amplify",
+        "AppSync (GraphQL)",
+        "Cognito",
         "Lambda",
-        "DynamoDB",
-        "SNS/SQS",
-        "Jest",
+        "S3",
+        "Cypress E2E",
       ],
       liveUrl: "https://admin.cardiacrhythmdiagnostics.com/",
       githubUrl: "#",
       period: "Nov 2021 – May 2024",
+      caseStudy: true,
+      caseStudySlug: "cloudholter",
+      cardTeaser:
+        "Holter case workflows were manual and fragmented. Result: End-to-end cloud platform for clinics, EDF/reports, and billing with real-time updates.",
     },
     {
       title: "ResearchCollab - Research Platform",
       challenge:
-        "Research teams were struggling with scattered notes and slow collaboration across tools.",
+        "Research teams were spending too much time switching between tools: PDFs in one place, notes in another, bookmarks and highlights scattered across the browser. Collaboration was slow; edits didn't sync in real time, so people duplicated work or missed the latest version. Capturing papers from Google Scholar and saving highlights from the web required multiple manual steps. The client needed a single platform where researchers could store and organize papers and notes, sync in real time across devices and teams, capture content from the browser without leaving the page, and use AI to speed up literature review and drafting.",
       solution:
-        "I built a Next.js web app and cross-browser extension with real-time collaboration via Supabase WebSockets.",
+        "I designed and built ResearchCollab as a full-stack collaborative research platform: a Next.js web app, Node.js/Express backend, and cross-browser extension (Chrome, Firefox, Safari). The web app offers workspaces and projects with role-based access, real-time collaboration via Socket.IO, a PDF pipeline with BullMQ + Redis and Semantic Scholar integration, and an AI Research Assistant (topic → outline → search → content inclusion). The extension lets users save papers from Scholar, bookmark from Search and YouTube, and turn highlights into notes. The backend provides REST API (auth with 2FA, workspaces, files, notes, Stripe), Redis and BullMQ for jobs, Socket.IO for live updates, and Supabase for DB and auth. Security includes CSP, CSRF, rate limiting, and input sanitization; Sentry and PostHog for monitoring.",
       result:
-        "Cut sync times by 50% so teams can collaborate in real time and keep knowledge in one place.",
+        "Unified workspace: papers, notes, bookmarks, and highlights live in one platform with workspaces and projects, reducing context switching. Real-time sync via Socket.IO and Redis replaced polling; teams see updates immediately, cutting perceived sync delay and duplicate work. The browser extension speeds up capture from Scholar, Search, and YouTube. BullMQ and Redis handle PDF and research-assistant jobs in the background so the app stays responsive. Hardening (CSP, CSRF, rate limits, sanitization) and monitoring (Sentry, PostHog) support safe use by teams and organizations.",
       image:
         "/images/projects/ResearchCollab/screencapture-research-collab-frontend-onrender-collaboration-2025-04-20-00_35_04.png",
       images: [
@@ -86,10 +98,26 @@ const Projects = () => {
         "/images/projects/ResearchCollab/screencapture-research-collab-frontend-onrender-account-2025-04-20-00_36_02.png",
       ],
       category: "Full Stack",
-      technologies: ["Next.js", "React.js", "Vite", "Supabase", "WebSockets"],
+      technologies: [
+        "Next.js 14",
+        "React 18",
+        "TypeScript",
+        "Node.js",
+        "Express",
+        "Supabase",
+        "Redis",
+        "BullMQ",
+        "Socket.IO",
+        "Stripe",
+        "Chrome/Firefox/Safari extension",
+      ],
       liveUrl: "https://app.researchcollab.ai/",
       githubUrl: "#",
       period: "Sep 2024 – Dec 2025",
+      caseStudy: true,
+      caseStudySlug: "researchcollab",
+      cardTeaser:
+        "Research teams were struggling with scattered notes and slow doc sync. Result: Real-time sync, unified workspace, and 50% faster note/doc updates across the team.",
     },
     {
       title:
@@ -222,7 +250,12 @@ const Projects = () => {
     ? [...new Set([selectedProject.image, ...(selectedProject.images || [])])]
     : [];
 
-  const getProjectTeaser = (project: Project, maxLength = 90) => {
+  const getProjectTeaser = (project: Project, maxLength = 120) => {
+    if (project.challenge && project.result) {
+      const combined = `${project.challenge} Result: ${project.result}`;
+      if (combined.length <= maxLength) return combined;
+      return combined.slice(0, maxLength).trim() + "...";
+    }
     const text =
       project.result ||
       project.challenge ||
@@ -321,10 +354,15 @@ const Projects = () => {
                       className="object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4">
+                    <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
                       <span className="inline-block bg-primary-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
                         {project.category}
                       </span>
+                      {project.caseStudy && (
+                        <span className="inline-block bg-amber-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                          Case Study
+                        </span>
+                      )}
                     </div>
                   </div>
                   <div className="p-5">
@@ -337,7 +375,7 @@ const Projects = () => {
                       </p>
                     )}
                     <p className="text-sm text-gray-600 dark:text-slate-400 leading-snug line-clamp-2">
-                      {getProjectTeaser(project)}
+                      {project.cardTeaser ?? getProjectTeaser(project)}
                     </p>
                   </div>
                 </motion.button>
@@ -386,9 +424,16 @@ const Projects = () => {
                 {/* Modal header with close */}
                 <div className="flex items-center justify-between p-4 border-b border-gray-100 dark:border-slate-700 flex-shrink-0">
                   <div>
-                    <h3 className="text-xl font-bold text-gray-800 dark:text-slate-100">
-                      {selectedProject.title}
-                    </h3>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h3 className="text-xl font-bold text-gray-800 dark:text-slate-100">
+                        {selectedProject.title}
+                      </h3>
+                      {selectedProject.caseStudy && (
+                        <span className="text-xs bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-200 px-2 py-0.5 rounded-full font-medium">
+                          Case Study
+                        </span>
+                      )}
+                    </div>
                     <div className="flex items-center gap-2 mt-1">
                       <span className="text-xs bg-primary-100 dark:bg-primary-900/50 text-primary-700 dark:text-primary-300 px-2 py-0.5 rounded-full">
                         {selectedProject.category}
@@ -471,6 +516,20 @@ const Projects = () => {
                     </>
                   )}
                 </div>
+
+                {/* Prominent case study CTA */}
+                {selectedProject.caseStudySlug && (
+                  <div className="px-6 pt-4 pb-2 border-b border-gray-100 dark:border-slate-700 flex-shrink-0">
+                    <Link
+                      href={`/case-study/${selectedProject.caseStudySlug}`}
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-lg font-semibold text-sm hover:from-amber-600 hover:to-amber-700 shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      Read Full Case Study
+                      <ExternalLink className="w-4 h-4" />
+                    </Link>
+                  </div>
+                )}
 
                 {/* Scrollable details */}
                 <div className="flex-1 overflow-y-auto p-6 space-y-5">

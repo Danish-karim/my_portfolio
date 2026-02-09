@@ -9,25 +9,25 @@ const Services = () => {
       icon: Code,
       title: "Web Development",
       description:
-        "Custom web applications built with modern frameworks like React, Next.js, and Vue.js. Responsive, fast, and user-friendly.",
+        "I build web applications that work on every device and load quickly, so your customers have a smooth experience and you can convert more visitors into leads or sales.",
     },
     {
       icon: Database,
       title: "Backend Development",
       description:
-        "Robust server-side solutions with Node.js, Python, and cloud services. Scalable APIs and database design.",
+        "I design APIs and data systems that scale with your business, so you can add users and features without rewriting everything or hitting performance limits.",
     },
     {
       icon: Cloud,
       title: "Cloud Solutions",
       description:
-        "Deployment and management on AWS, Azure, and Google Cloud. CI/CD pipelines and DevOps practices.",
+        "I ensure your application is reliable and can handle growth, so you never lose a customer due to downtime or slow performance.",
     },
     {
       icon: Zap,
       title: "Performance Optimization",
       description:
-        "Speed optimization, code splitting, and caching strategies to ensure lightning-fast load times.",
+        "I improve speed and reduce load times so your site keeps users engaged, ranks better in search, and costs less to run at scale.",
     },
   ];
 
@@ -51,7 +51,7 @@ const Services = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary-600 to-primary-400 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 dark:text-slate-400 max-w-3xl mx-auto">
-            Comprehensive solutions for all your development needs
+            Solutions that help your business run better and grow
           </p>
         </motion.div>
 

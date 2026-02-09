@@ -2,13 +2,21 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown, Sun, Moon } from "lucide-react";
+import { SiFi, SiUpwork } from "@icons-pack/react-simple-icons";
 import { useTheme } from "@/components/ThemeProvider";
 
 const hireLinks = [
-  { name: "Fiverr", url: "https://www.fiverr.com/s/XLAwzQD" },
+  {
+    name: "Fiverr",
+    url: "https://www.fiverr.com/s/XLAwzQD",
+    Icon: SiFi,
+    color: "#1DBF73",
+  },
   {
     name: "Upwork",
     url: "https://www.upwork.com/freelancers/~01d311f220d3e561f1?mp_source=share",
+    Icon: SiUpwork,
+    color: "#14a800",
   },
 ];
 
@@ -125,18 +133,22 @@ const Navigation = () => {
               </button>
               {isHireDropdownOpen && (
                 <div className="absolute right-0 mt-2 w-40 py-1 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-gray-200 dark:border-slate-700 z-50">
-                  {hireLinks.map((link) => (
-                    <a
-                      key={link.name}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => setIsHireDropdownOpen(false)}
-                      className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-slate-700 hover:text-primary-600 dark:hover:text-primary-400"
-                    >
-                      {link.name}
-                    </a>
-                  ))}
+                  {hireLinks.map((link) => {
+                    const Icon = link.Icon;
+                    return (
+                      <a
+                        key={link.name}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setIsHireDropdownOpen(false)}
+                        className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-slate-700 hover:text-primary-600 dark:hover:text-primary-400"
+                      >
+                        <Icon size={18} color={link.color} />
+                        {link.name}
+                      </a>
+                    );
+                  })}
                 </div>
               )}
             </div>
@@ -188,23 +200,26 @@ const Navigation = () => {
               </a>
             ))}
             <div className="px-3 pt-3 space-y-2">
-              {hireLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block px-4 py-3 rounded-lg font-semibold text-center transition-colors duration-200 hover:opacity-90"
-                  style={{
-                    backgroundColor:
-                      link.name === "Fiverr" ? "#1dbf73" : "#14a800",
-                    color: "white",
-                  }}
-                >
-                  Hire on {link.name}
-                </a>
-              ))}
+              {hireLinks.map((link) => {
+                const Icon = link.Icon;
+                return (
+                  <a
+                    key={link.name}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-semibold transition-colors duration-200 hover:opacity-90"
+                    style={{
+                      backgroundColor: link.color,
+                      color: "white",
+                    }}
+                  >
+                    <Icon size={20} color="white" />
+                    Hire on {link.name}
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
