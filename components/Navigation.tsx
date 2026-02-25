@@ -117,7 +117,11 @@ const Navigation = () => {
                 <button
                   onClick={toggleTheme}
                   className="p-2 rounded-full text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-white dark:hover:bg-slate-700 shadow-sm transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
-                  aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+                  aria-label={
+                    theme === "light"
+                      ? "Switch to dark mode"
+                      : "Switch to light mode"
+                  }
                   title={theme === "light" ? "Dark mode" : "Light mode"}
                 >
                   {theme === "light" ? (
@@ -184,11 +188,17 @@ const Navigation = () => {
           <div className="px-4 py-4 space-y-0.5">
             {/* Theme toggle row - clear placement at top of menu */}
             <div className="flex items-center justify-between py-3 mb-2 border-b border-gray-200 dark:border-slate-700">
-              <span className="text-sm font-medium text-gray-600 dark:text-slate-400">Appearance</span>
+              <span className="text-sm font-medium text-gray-600 dark:text-slate-400">
+                Appearance
+              </span>
               <button
                 onClick={toggleTheme}
                 className="flex items-center gap-2 px-3 py-2 rounded-full border border-gray-200 dark:border-slate-600 bg-gray-50 dark:bg-slate-800 text-gray-700 dark:text-gray-300 text-sm font-medium hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
-                aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+                aria-label={
+                  theme === "light"
+                    ? "Switch to dark mode"
+                    : "Switch to light mode"
+                }
               >
                 {theme === "light" ? (
                   <>
