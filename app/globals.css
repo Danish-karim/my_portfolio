@@ -34,6 +34,15 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Hide scrollbar only in resume preview (keep scrolling) */
+  .resume-preview-hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .resume-preview-hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* Custom scrollbar */

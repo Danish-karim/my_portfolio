@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import IntroVideo from "@/components/IntroVideo";
+import Resume from "@/components/Resume";
 import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
@@ -15,6 +16,7 @@ export default function Home() {
       <Navigation />
       <Hero />
       <About />
+      <Resume />
       <IntroVideo />
       <Skills />
       <Experience />

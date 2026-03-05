@@ -23,6 +23,7 @@ const hireLinks = [
 const navItems = [
   { name: "Home", href: "#home", id: "home" },
   { name: "About", href: "#about", id: "about" },
+  { name: "Resume", href: "#resume", id: "resume" },
   { name: "Intro Video", href: "#intro-video", id: "intro-video" },
   { name: "Skills", href: "#skills", id: "skills" },
   { name: "Experience", href: "#experience", id: "experience" },
@@ -38,16 +39,15 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isHireDropdownOpen, setIsHireDropdownOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownRefDesktop = useRef<HTMLDivElement>(null);
+  const dropdownRefMobile = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setIsHireDropdownOpen(false);
-      }
+      const target = event.target as Node;
+      const outsideDesktop = !dropdownRefDesktop.current?.contains(target);
+      const outsideMobile = !dropdownRefMobile.current?.contains(target);
+      if (outsideDesktop && outsideMobile) setIsHireDropdownOpen(false);
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
@@ -79,70 +79,119 @@ const Navigation = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-lg"
+          ? "bg-white/98 dark:bg-slate-900/98 backdrop-blur-md border-b border-gray-200/80 dark:border-slate-700/80 shadow-sm"
           : "bg-transparent dark:bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-14 md:h-16">
+          {/* Logo only - clean left side */}
           <div className="flex-shrink-0">
             <a
               href="#home"
-              className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent"
+              className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent tracking-tight"
             >
               Danish Karim
             </a>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex md:items-center md:gap-5 md:min-w-0">
-            <div className="ml-8 flex items-center gap-5 flex-shrink-0 min-w-0">
+          {/* Desktop: nav pill with links + theme at the end (one clear block) */}
+          <div className="hidden lg:flex lg:items-center lg:min-w-0 lg:flex-1 lg:justify-center lg:max-w-4xl">
+            <div className="flex items-center gap-0.5 rounded-xl bg-gray-100/90 dark:bg-slate-800/90 px-1.5 py-1 ring-1 ring-gray-200/60 dark:ring-slate-600/60">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className={`px-2.5 py-2 text-sm font-medium whitespace-nowrap transition-colors duration-200 rounded-md hover:bg-gray-100 dark:hover:bg-slate-800/50 ${
+                  className={`px-3 py-2 text-xs font-medium whitespace-nowrap rounded-lg transition-all duration-200 ${
                     activeSection === item.id
-                      ? "text-primary-600 dark:text-primary-400 font-semibold"
-                      : "text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
+                      ? "bg-white dark:bg-slate-700 text-primary-600 dark:text-primary-400 font-semibold shadow-sm"
+                      : "text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-slate-200 hover:bg-white/60 dark:hover:bg-slate-700/60"
                   }`}
                 >
                   {item.name}
                 </a>
               ))}
+              {/* Theme as last item in pill - same row, reads as "preference" */}
+              <span className="w-px h-4 mx-0.5 bg-gray-300 dark:bg-slate-600 flex-shrink-0" aria-hidden />
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-lg text-gray-500 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-white/80 dark:hover:bg-slate-700/80 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-1"
+                aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+                title={theme === "light" ? "Dark mode" : "Light mode"}
+              >
+                {theme === "light" ? (
+                  <Moon className="w-4 h-4" />
+                ) : (
+                  <Sun className="w-4 h-4" />
+                )}
+              </button>
             </div>
-            <div className="flex items-center gap-3 flex-shrink-0">
-              {/* Theme toggle - pill style for clear placement */}
-              <div className="flex items-center rounded-full border border-gray-200 dark:border-slate-600 bg-gray-50/80 dark:bg-slate-800/80 p-0.5">
-                <button
-                  onClick={toggleTheme}
-                  className="p-2 rounded-full text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-white dark:hover:bg-slate-700 shadow-sm transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
-                  aria-label={
-                    theme === "light"
-                      ? "Switch to dark mode"
-                      : "Switch to light mode"
-                  }
-                  title={theme === "light" ? "Dark mode" : "Light mode"}
-                >
-                  {theme === "light" ? (
-                    <Moon className="w-4 h-4" />
-                  ) : (
-                    <Sun className="w-4 h-4" />
-                  )}
-                </button>
-              </div>
-              <div className="relative" ref={dropdownRef}>
+          </div>
+
+          {/* Right: Hire Me only - theme is with logo on left */}
+          <div className="hidden lg:flex lg:items-center lg:flex-shrink-0">
+            <div className="relative" ref={dropdownRefDesktop}>
+              <button
+                onClick={() => setIsHireDropdownOpen(!isHireDropdownOpen)}
+                className="flex items-center gap-1.5 px-4 py-2 bg-primary-600 dark:bg-primary-500 text-white rounded-lg font-semibold text-sm hover:bg-primary-700 dark:hover:bg-primary-600 transition-colors duration-200 shadow-sm whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
+              >
+                Hire Me
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform ${isHireDropdownOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+              {isHireDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-40 py-1 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-gray-200 dark:border-slate-600 z-50">
+                  {hireLinks.map((link) => {
+                    const Icon = link.Icon;
+                    return (
+                      <a
+                        key={link.name}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setIsHireDropdownOpen(false)}
+                        className="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-slate-700 hover:text-primary-600 dark:hover:text-primary-400 rounded-lg mx-1 transition-colors"
+                      >
+                        <Icon size={18} color={link.color} />
+                        {link.name}
+                      </a>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Tablet: compact nav + theme. Mobile: Hire Me + menu */}
+          <div className="flex lg:hidden items-center gap-2">
+            <div className="hidden md:flex items-center gap-0.5 rounded-lg bg-gray-100 dark:bg-slate-800 px-1.5 py-1">
+              <a href="#contact" className="px-3 py-1.5 text-xs font-medium text-gray-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 rounded-md">
+                Contact
+              </a>
+              <a href="#resume" className="px-3 py-1.5 text-xs font-medium text-gray-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 rounded-md">
+                Resume
+              </a>
+              <span className="w-px h-4 bg-gray-300 dark:bg-slate-600" aria-hidden />
+              <button
+                onClick={toggleTheme}
+                className="p-1.5 rounded-md text-gray-500 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-white/80 dark:hover:bg-slate-700/80 transition-colors"
+                aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+              >
+                {theme === "light" ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+              </button>
+            </div>
+            <div className="flex items-center gap-2 flex-shrink-0">
+              <div className="relative" ref={dropdownRefMobile}>
                 <button
                   onClick={() => setIsHireDropdownOpen(!isHireDropdownOpen)}
-                  className="flex items-center gap-1.5 px-5 py-2 bg-primary-600 text-white rounded-lg font-semibold text-sm hover:bg-primary-700 transition-colors duration-200 shadow-md hover:shadow-lg whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
+                  className="flex items-center gap-1 px-3 py-2 bg-primary-600 text-white rounded-lg font-semibold text-sm hover:bg-primary-700 whitespace-nowrap"
                 >
                   Hire Me
-                  <ChevronDown
-                    className={`w-4 h-4 transition-transform ${isHireDropdownOpen ? "rotate-180" : ""}`}
-                  />
+                  <ChevronDown className={`w-4 h-4 ${isHireDropdownOpen ? "rotate-180" : ""}`} />
                 </button>
                 {isHireDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-40 py-1 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-gray-200 dark:border-slate-700 z-50">
+                  <div className="absolute right-0 mt-2 w-36 py-1 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-gray-200 dark:border-slate-600 z-50">
                     {hireLinks.map((link) => {
                       const Icon = link.Icon;
                       return (
@@ -152,9 +201,9 @@ const Navigation = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={() => setIsHireDropdownOpen(false)}
-                          className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-slate-700 hover:text-primary-600 dark:hover:text-primary-400"
+                          className="flex items-center gap-2 px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-slate-700 rounded-lg mx-1"
                         >
-                          <Icon size={18} color={link.color} />
+                          <Icon size={16} color={link.color} />
                           {link.name}
                         </a>
                       );
@@ -163,28 +212,24 @@ const Navigation = () => {
                 )}
               </div>
             </div>
-
-            {/* Mobile: menu button only (theme toggle moved inside menu) */}
-            <div className="md:hidden flex items-center">
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2.5 rounded-lg text-gray-700 dark:text-gray-300 hover:text-primary-600 hover:bg-gray-100 dark:hover:bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 transition-colors"
-                aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-              >
-                {isMobileMenuOpen ? (
-                  <X className="h-6 w-6" />
-                ) : (
-                  <Menu className="h-6 w-6" />
-                )}
-              </button>
-            </div>
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2.5 rounded-lg text-gray-700 dark:text-gray-300 hover:text-primary-600 hover:bg-gray-100 dark:hover:bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 transition-colors"
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile / Tablet Navigation drawer */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-700">
+        <div className="lg:hidden bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-700">
           <div className="px-4 py-4 space-y-0.5">
             {/* Theme toggle row - clear placement at top of menu */}
             <div className="flex items-center justify-between py-3 mb-2 border-b border-gray-200 dark:border-slate-700">

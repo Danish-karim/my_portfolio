@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, FileText } from "lucide-react";
 import { SiFi, SiUpwork } from "@icons-pack/react-simple-icons";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -133,6 +133,13 @@ const Hero = () => {
               className="px-8 py-3 bg-white dark:bg-slate-800 text-primary-600 dark:text-primary-400 border-2 border-primary-600 dark:border-primary-500 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-slate-700 transform hover:scale-105 transition-all duration-200"
             >
               See Proof of Impact
+            </a>
+            <a
+              href="#resume"
+              className="px-8 py-3 bg-white dark:bg-slate-800 text-primary-600 dark:text-primary-400 border-2 border-primary-600 dark:border-primary-500 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-slate-700 transform hover:scale-105 transition-all duration-200 inline-flex items-center gap-2"
+            >
+              <FileText className="w-5 h-5" />
+              View Resume
             </a>
           </motion.div>
         </motion.div>
