@@ -1,33 +1,45 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code, Database, Cloud, Zap } from "lucide-react";
+import { Code, Database, Cloud, Zap, Sparkles, Wrench } from "lucide-react";
 
 const Services = () => {
   const services = [
     {
       icon: Code,
-      title: "Web Development",
+      title: "Full Stack Web Apps",
       description:
-        "I build web applications that work on every device and load quickly, so your customers have a smooth experience and you can convert more visitors into leads or sales.",
+        "React/Next.js frontends on Node.js or PHP backends, built end to end from database and API to UI and deployment.",
+    },
+    {
+      icon: Sparkles,
+      title: "AI & LLM Features",
+      description:
+        "OpenAI and Gemini integrations that ship in production: document analysis, research assistants, background AI job pipelines and prompt templates.",
     },
     {
       icon: Database,
-      title: "Backend Development",
+      title: "APIs & Backend",
       description:
-        "I design APIs and data systems that scale with your business, so you can add users and features without rewriting everything or hitting performance limits.",
+        "REST and GraphQL APIs for web and mobile apps, with Redis/BullMQ queues, real-time updates over WebSockets, and search with Typesense.",
     },
     {
       icon: Cloud,
-      title: "Cloud Solutions",
+      title: "AWS Serverless",
       description:
-        "I ensure your application is reliable and can handle growth, so you never lose a customer due to downtime or slow performance.",
+        "Lambda, API Gateway, DynamoDB, S3, Amplify and CDK: infrastructure that scales with usage and stays cheap to run.",
+    },
+    {
+      icon: Wrench,
+      title: "Extending Live Systems",
+      description:
+        "New features on long-running production codebases (permissions, content types, translations) shipped without disrupting existing users.",
     },
     {
       icon: Zap,
-      title: "Performance Optimization",
+      title: "Performance & Quality",
       description:
-        "I improve speed and reduce load times so your site keeps users engaged, ranks better in search, and costs less to run at scale.",
+        "Faster queries and page loads, test coverage on critical modules, and code reviews that keep a codebase healthy as it grows.",
     },
   ];
 
@@ -46,12 +58,12 @@ const Services = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">
-              Services I Offer
+              What I Can Do for You
             </span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary-600 to-primary-400 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 dark:text-slate-400 max-w-3xl mx-auto">
-            Solutions that help your business run better and grow
+            For teams hiring and for clients with a project
           </p>
         </motion.div>
 

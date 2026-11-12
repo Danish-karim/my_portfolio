@@ -35,7 +35,7 @@ const IntroVideo = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-primary-600 to-primary-400 mx-auto mb-6" />
           <p className="text-lg text-gray-600 dark:text-slate-400 max-w-2xl mx-auto">
             A quick overview of what I do, the tech I use, and the impact I
-            deliver for clients.
+            deliver.
           </p>
         </motion.div>
 
@@ -78,7 +78,7 @@ const IntroVideo = () => {
             href="#contact"
             className="text-primary-600 dark:text-primary-400 font-medium hover:underline"
           >
-            Get a free project quote
+            Get in touch
           </a>
         </motion.p>
       </div>

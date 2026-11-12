@@ -1,22 +1,38 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown, Sun, Moon } from "lucide-react";
+import { Menu, X, ChevronDown, Sun, Moon, Mail, Linkedin } from "lucide-react";
 import { SiFi, SiUpwork } from "@icons-pack/react-simple-icons";
 import { useTheme } from "@/components/ThemeProvider";
 
 const hireLinks = [
   {
-    name: "Fiverr",
-    url: "https://www.fiverr.com/s/XLAwzQD",
-    Icon: SiFi,
-    color: "#1DBF73",
+    name: "Email",
+    label: "Email me",
+    url: "mailto:danishkarim96@gmail.com",
+    Icon: Mail,
+    color: "#0d9488",
+  },
+  {
+    name: "LinkedIn",
+    label: "LinkedIn",
+    url: "https://www.linkedin.com/in/danish-karim-fullstack",
+    Icon: Linkedin,
+    color: "#0A66C2",
   },
   {
     name: "Upwork",
+    label: "Hire on Upwork",
     url: "https://www.upwork.com/freelancers/~01d311f220d3e561f1?mp_source=share",
     Icon: SiUpwork,
     color: "#14a800",
+  },
+  {
+    name: "Fiverr",
+    label: "Hire on Fiverr",
+    url: "https://www.fiverr.com/s/XLAwzQD",
+    Icon: SiFi,
+    color: "#1DBF73",
   },
 ];
 
@@ -128,33 +144,33 @@ const Navigation = () => {
             </div>
           </div>
 
-          {/* Right: Hire Me only - theme is with logo on left */}
+          {/* Right: contact / hire menu */}
           <div className="hidden lg:flex lg:items-center lg:flex-shrink-0">
             <div className="relative" ref={dropdownRefDesktop}>
               <button
                 onClick={() => setIsHireDropdownOpen(!isHireDropdownOpen)}
                 className="flex items-center gap-1.5 px-4 py-2 bg-primary-600 dark:bg-primary-500 text-white rounded-lg font-semibold text-sm hover:bg-primary-700 dark:hover:bg-primary-600 transition-colors duration-200 shadow-sm whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
               >
-                Hire Me
+                Work With Me
                 <ChevronDown
                   className={`w-4 h-4 transition-transform ${isHireDropdownOpen ? "rotate-180" : ""}`}
                 />
               </button>
               {isHireDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-40 py-1 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-gray-200 dark:border-slate-600 z-50">
+                <div className="absolute right-0 mt-2 w-44 py-1 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-gray-200 dark:border-slate-600 z-50">
                   {hireLinks.map((link) => {
                     const Icon = link.Icon;
                     return (
                       <a
                         key={link.name}
                         href={link.url}
-                        target="_blank"
+                        target={link.url.startsWith("http") ? "_blank" : undefined}
                         rel="noopener noreferrer"
                         onClick={() => setIsHireDropdownOpen(false)}
                         className="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-slate-700 hover:text-primary-600 dark:hover:text-primary-400 rounded-lg mx-1 transition-colors"
                       >
                         <Icon size={18} color={link.color} />
-                        {link.name}
+                        {link.label}
                       </a>
                     );
                   })}
@@ -163,11 +179,11 @@ const Navigation = () => {
             </div>
           </div>
 
-          {/* Tablet: compact nav + theme. Mobile: Hire Me + menu */}
+          {/* Tablet: compact nav + theme. Mobile: Contact menu + hamburger */}
           <div className="flex lg:hidden items-center gap-2">
             <div className="hidden md:flex items-center gap-0.5 rounded-lg bg-gray-100 dark:bg-slate-800 px-1.5 py-1">
-              <a href="#contact" className="px-3 py-1.5 text-xs font-medium text-gray-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 rounded-md">
-                Contact
+              <a href="#projects" className="px-3 py-1.5 text-xs font-medium text-gray-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 rounded-md">
+                Projects
               </a>
               <a href="#resume" className="px-3 py-1.5 text-xs font-medium text-gray-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 rounded-md">
                 Resume
@@ -187,24 +203,24 @@ const Navigation = () => {
                   onClick={() => setIsHireDropdownOpen(!isHireDropdownOpen)}
                   className="flex items-center gap-1 px-3 py-2 bg-primary-600 text-white rounded-lg font-semibold text-sm hover:bg-primary-700 whitespace-nowrap"
                 >
-                  Hire Me
+                  Contact
                   <ChevronDown className={`w-4 h-4 ${isHireDropdownOpen ? "rotate-180" : ""}`} />
                 </button>
                 {isHireDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-36 py-1 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-gray-200 dark:border-slate-600 z-50">
+                  <div className="absolute right-0 mt-2 w-44 py-1 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-gray-200 dark:border-slate-600 z-50">
                     {hireLinks.map((link) => {
                       const Icon = link.Icon;
                       return (
                         <a
                           key={link.name}
                           href={link.url}
-                          target="_blank"
+                          target={link.url.startsWith("http") ? "_blank" : undefined}
                           rel="noopener noreferrer"
                           onClick={() => setIsHireDropdownOpen(false)}
                           className="flex items-center gap-2 px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-slate-700 rounded-lg mx-1"
                         >
                           <Icon size={16} color={link.color} />
-                          {link.name}
+                          {link.label}
                         </a>
                       );
                     })}
@@ -279,7 +295,7 @@ const Navigation = () => {
                   <a
                     key={link.name}
                     href={link.url}
-                    target="_blank"
+                    target={link.url.startsWith("http") ? "_blank" : undefined}
                     rel="noopener noreferrer"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-semibold transition-colors duration-200 hover:opacity-90"
@@ -289,7 +305,7 @@ const Navigation = () => {
                     }}
                   >
                     <Icon size={20} color="white" />
-                    Hire on {link.name}
+                    {link.label}
                   </a>
                 );
               })}

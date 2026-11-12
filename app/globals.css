@@ -66,17 +66,3 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #0f766e;
 }
-
-/* Seasonal animation - snowfall */
-@keyframes fall {
-  0% {
-    transform: translateY(-10vh) translateX(0);
-  }
-  100% {
-    transform: translateY(110vh) translateX(20px);
-  }
-}
-
-.animate-fall {
-  animation: fall linear infinite;
-}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ChevronDown, FileText } from "lucide-react";
+import { ChevronDown, FileText, Mail, Linkedin, Github } from "lucide-react";
 import { SiFi, SiUpwork } from "@icons-pack/react-simple-icons";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -73,9 +73,9 @@ const Hero = () => {
             <span className="text-gray-800 dark:text-slate-100">
               I build{" "}
               <span className="bg-gradient-to-r from-primary-600 via-primary-500 to-primary-400 bg-clip-text text-transparent">
-                scalable web apps
+                production web apps, APIs and AI features
               </span>{" "}
-              that help businesses improve efficiency and scale
+              end to end
             </span>
           </motion.h1>
 
@@ -94,52 +94,84 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="text-base md:text-lg text-gray-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto leading-relaxed"
           >
-            6+ years delivering secure, high-performance systems so your
-            business can scale with confidence.
+            6+ years with React/Next.js, Node.js, AWS serverless and LLM
+            integration (OpenAI, Gemini), for remote teams in Australia and the
+            UAE. Products used by 20+ clinics, 50+ wineries and 1,000+ investors.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center items-center"
           >
             <a
-              href="https://www.fiverr.com/s/XLAwzQD"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3 bg-[#1DBF73] text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 hover:bg-[#19a463] inline-flex items-center gap-2"
+              href="#resume"
+              className="px-8 py-3 bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 inline-flex items-center gap-2"
             >
-              <SiFi size={20} color="white" />
-              Hire on Fiverr
-            </a>
-            <a
-              href="https://www.upwork.com/freelancers/~01d311f220d3e561f1?mp_source=share"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3 bg-[#14a800] text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 hover:bg-[#108a00] inline-flex items-center gap-2"
-            >
-              <SiUpwork size={20} color="white" />
-              Hire on Upwork
-            </a>
-            <a
-              href="#contact"
-              className="px-8 py-3 bg-white dark:bg-slate-800 text-primary-600 dark:text-primary-400 border-2 border-primary-600 dark:border-primary-500 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-slate-700 transform hover:scale-105 transition-all duration-200"
-            >
-              Get a Free Project Quote
+              <FileText className="w-5 h-5" />
+              View Resume
             </a>
             <a
               href="#projects"
               className="px-8 py-3 bg-white dark:bg-slate-800 text-primary-600 dark:text-primary-400 border-2 border-primary-600 dark:border-primary-500 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-slate-700 transform hover:scale-105 transition-all duration-200"
             >
-              See Proof of Impact
+              See My Work
             </a>
             <a
-              href="#resume"
+              href="#contact"
               className="px-8 py-3 bg-white dark:bg-slate-800 text-primary-600 dark:text-primary-400 border-2 border-primary-600 dark:border-primary-500 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-slate-700 transform hover:scale-105 transition-all duration-200 inline-flex items-center gap-2"
             >
-              <FileText className="w-5 h-5" />
-              View Resume
+              <Mail className="w-5 h-5" />
+              Get in Touch
+            </a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="mt-6 flex flex-wrap justify-center items-center gap-x-5 gap-y-2 text-sm text-gray-500 dark:text-slate-400"
+          >
+            <a
+              href="https://www.linkedin.com/in/danish-karim-fullstack"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 hover:text-primary-600 dark:hover:text-primary-400"
+            >
+              <Linkedin className="w-4 h-4" />
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/Danish-karim"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 hover:text-primary-600 dark:hover:text-primary-400"
+            >
+              <Github className="w-4 h-4" />
+              GitHub
+            </a>
+            <span className="hidden sm:inline text-gray-300 dark:text-slate-600" aria-hidden>
+              |
+            </span>
+            <span>Freelance clients:</span>
+            <a
+              href="https://www.upwork.com/freelancers/~01d311f220d3e561f1?mp_source=share"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 hover:text-primary-600 dark:hover:text-primary-400"
+            >
+              <SiUpwork size={16} color="#14a800" />
+              Upwork
+            </a>
+            <a
+              href="https://www.fiverr.com/s/XLAwzQD"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 hover:text-primary-600 dark:hover:text-primary-400"
+            >
+              <SiFi size={16} color="#1DBF73" />
+              Fiverr
             </a>
           </motion.div>
         </motion.div>

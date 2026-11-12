@@ -1,15 +1,26 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import SeasonalEffects from "@/components/SeasonalEffects";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const description =
+  "Senior Full Stack Developer with 6+ years shipping production web apps, APIs and AI features: React/Next.js, Node.js, PHP, AWS serverless and LLM integration (OpenAI, Gemini).";
+
 export const metadata: Metadata = {
   title: "Danish Karim - Senior Full Stack Developer | Portfolio",
-  description:
-    "Senior Full Stack Developer with 6+ years of experience specializing in MERN stack and AWS Amplify. Building scalable web applications and delivering robust solutions.",
+  description,
+  openGraph: {
+    title: "Danish Karim - Senior Full Stack Developer",
+    description,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Danish Karim - Senior Full Stack Developer",
+    description,
+  },
 };
 
 export default function RootLayout({
@@ -26,7 +37,6 @@ export default function RootLayout({
           }}
         />
         <ThemeProvider>
-          <SeasonalEffects />
           {children}
         </ThemeProvider>
       </body>

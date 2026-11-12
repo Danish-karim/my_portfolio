@@ -8,6 +8,7 @@ import {
   MessageCircle,
   Phone,
   Github,
+  Download,
 } from "lucide-react";
 import { SiFi, SiUpwork } from "@icons-pack/react-simple-icons";
 
@@ -56,22 +57,23 @@ const Contact = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary-600 to-primary-400 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 dark:text-slate-400 max-w-3xl mx-auto mb-6">
-            Let&apos;s work together to bring your ideas to life
+            Hiring for a role or have a project in mind? I usually reply within 24 hours.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
-              href="mailto:danishkarim96@gmail.com?subject=Project%20Quote%20Request"
+              href="mailto:danishkarim96@gmail.com?subject=Opportunity%20for%20Danish%20Karim"
               className="px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-500 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 inline-flex items-center gap-2"
             >
               <Mail className="w-5 h-5" />
-              Get a Free Project Quote
+              Email Me
             </a>
             <a
-              href="mailto:danishkarim96@gmail.com?subject=Free%20Consultation%20Request"
-              className="px-8 py-4 bg-white text-primary-600 border-2 border-primary-600 rounded-lg font-semibold hover:bg-primary-50 transform hover:scale-105 transition-all duration-200 inline-flex items-center gap-2"
+              href="/danish_karim_latest.pdf"
+              download="Danish_Karim_Resume.pdf"
+              className="px-8 py-4 bg-white dark:bg-slate-800 text-primary-600 dark:text-primary-400 border-2 border-primary-600 dark:border-primary-500 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-slate-700 transform hover:scale-105 transition-all duration-200 inline-flex items-center gap-2"
             >
-              <MessageCircle className="w-5 h-5" />
-              Schedule a Free Consultation
+              <Download className="w-5 h-5" />
+              Download Resume
             </a>
           </div>
         </motion.div>
@@ -87,9 +89,9 @@ const Contact = () => {
               Let&apos;s Connect
             </h3>
             <p className="text-gray-600 dark:text-slate-400 mb-8 leading-relaxed">
-              I&apos;m always open to discussing new projects, creative ideas,
-              or opportunities to be part of your visions. Feel free to reach
-              out through any of the platforms below or send me a message.
+              Recruiters and hiring managers: email or LinkedIn is the quickest
+              way to reach me. Clients: email me directly, or hire me through
+              Upwork or Fiverr if you prefer working on a platform.
             </p>
 
             <div className="space-y-4 mb-8">
@@ -164,11 +166,11 @@ const Contact = () => {
             <div className="mb-6">
               <MessageCircle className="w-12 h-12 mb-4 opacity-90" />
               <h3 className="text-2xl font-bold mb-4">
-                Ready to Start a Project?
+                Let&apos;s Talk
               </h3>
               <p className="opacity-95 leading-relaxed mb-6">
-                Get a free quote or book a short call to discuss your goals. No
-                commitment. Just a clear next step for your project.
+                Tell me about the role or the project, and I&apos;ll get back to you
+                with next steps.
               </p>
               <a
                 href="mailto:danishkarim96@gmail.com?subject=Let's%20talk%20about%20my%20project"
@@ -182,13 +184,13 @@ const Contact = () => {
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
                 <div className="font-semibold mb-1">Available For</div>
                 <div className="text-sm opacity-90">
-                  Full-time positions • Freelance projects • Consulting
+                  Full-time remote roles • Contract work • Freelance projects
                 </div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <div className="font-semibold mb-1">Response Time</div>
+                <div className="font-semibold mb-1">Location</div>
                 <div className="text-sm opacity-90">
-                  Usually responds within 24 hours
+                  Pakistan · working remotely with teams in Australia and the UAE
                 </div>
               </div>
             </div>

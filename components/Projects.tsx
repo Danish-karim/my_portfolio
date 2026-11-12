@@ -41,6 +41,30 @@ const Projects = () => {
 
   const projects: Project[] = [
     {
+      title: "Global CMS & Content API Platform",
+      challenge:
+        "A long-running PHP/MySQL CMS powers a public website and a native mobile app across multiple countries and languages. Editors needed finer-grained access control, a more flexible way to build pages, and the mobile app needed richer APIs, all without disrupting a live production system.",
+      solution:
+        "Working at Pine Technologies, I built page-level permissions scoped by content type, organisation and geography (region → country → area) on top of the existing access model, and delivered a new block-based Page content type by reusing the existing page builder, with translations inheriting layout from the live master version. I also extend the REST APIs behind the mobile app for content, announcements, and fitness challenge leaderboards and stats.",
+      result:
+        "Editors can be given precise, geography-aware access; new pages are built from reusable blocks with translations kept in sync; and the mobile app gets new content and challenge features. All of it shipped safely into a live system spanning publishing, translation workflows, Typesense search indexing and caching.",
+      image: "/images/projects/global-cms/cover.svg",
+      category: "Backend",
+      technologies: [
+        "PHP",
+        "MySQL",
+        "REST APIs",
+        "Typesense",
+        "Docker",
+        "Caching",
+      ],
+      liveUrl: "",
+      githubUrl: "#",
+      period: "Jul 2026 – Present",
+      cardTeaser:
+        "Multi-country CMS & mobile APIs. Built geography-scoped page permissions, a block-based Page content type, and fitness challenge APIs.",
+    },
+    {
       title: "CloudHolter - Medical Application",
       challenge:
         "A cardiac diagnostics provider was managing Holter cases across multiple clinics with spreadsheets and email: referrals, EDF uploads, report handling, and billing were manual and fragmented. There was no single view of equipment, case status, or who was doing what. They needed a unified, auditable workflow that could scale as they added clinics and clinicians.",
@@ -70,6 +94,8 @@ const Projects = () => {
         "Cognito",
         "Lambda",
         "S3",
+        "DynamoDB",
+        "SNS/SQS",
         "Cypress E2E",
       ],
       liveUrl: "https://admin.cardiacrhythmdiagnostics.com/",
@@ -78,7 +104,7 @@ const Projects = () => {
       caseStudy: true,
       caseStudySlug: "cloudholter",
       cardTeaser:
-        "Holter case workflows were manual and fragmented. Result: End-to-end cloud platform for clinics, EDF/reports, and billing with real-time updates.",
+        "Used by 20+ clinics for 200+ daily patient check-ins: end-to-end Holter workflow, reports and billing in one cloud platform.",
     },
     {
       title: "ResearchCollab - Research Platform",
@@ -104,7 +130,10 @@ const Projects = () => {
         "TypeScript",
         "Node.js",
         "Express",
-        "Supabase",
+        "OpenAI GPT-4o-mini",
+        "Google Gemini 2.5",
+        "PostgreSQL / Supabase",
+        "Docker",
         "Redis",
         "BullMQ",
         "Socket.IO",
@@ -117,17 +146,17 @@ const Projects = () => {
       caseStudy: true,
       caseStudySlug: "researchcollab",
       cardTeaser:
-        "Research teams were struggling with scattered notes and slow doc sync. Result: Real-time sync, unified workspace, and 50% faster note/doc updates across the team.",
+        "AI research platform in production: GPT-4o-mini & Gemini paper analysis, Deep Research reports, and 50% faster real-time sync.",
     },
     {
       title:
-        "Cross-Browser Research Collaboration Extension | Chrome, Firefox, Edge",
+        "ResearchCollab Browser Extension | Chrome, Firefox, Safari",
       challenge:
         "Researchers wanted to capture and organize sources without leaving their browser.",
       solution:
-        "I built a cross-browser extension (Chrome, Firefox, Edge) with quick access to projects, collaborators, and real-time updates from the toolbar.",
+        "I built a cross-browser extension (Chrome, Firefox, Safari; React, Vite, Supabase) that saves Google Scholar papers as AI-processed PDFs, with Google OAuth and 2FA, plus quick access to projects and collaborators from the toolbar.",
       result:
-        "Streamlined research workflows with fast performance and one-click access to active projects and teammates.",
+        "Researchers capture papers into their workspace in one click, without leaving the page they're reading.",
       image: "/images/projects/ResearcgCollab%20Browser%20extension/2.png",
       images: [
         "/images/projects/ResearcgCollab%20Browser%20extension/1.png",
@@ -137,11 +166,12 @@ const Projects = () => {
       ],
       category: "Frontend",
       technologies: [
-        "Browser Extension",
-        "Cross Browser & Device Compatibility",
+        "Browser Extension (MV3)",
         "React",
+        "Vite",
         "Tailwind CSS",
         "Supabase",
+        "Google OAuth",
       ],
       liveUrl: "",
       githubUrl: "#",
@@ -152,9 +182,9 @@ const Projects = () => {
       challenge:
         "The business needed a reliable platform for users to trade shares and manage investments at scale.",
       solution:
-        "I architected an investing platform with AWS CDK and RESTful APIs integrated with CacheInvest for share switching and withdrawals.",
+        "I built an investing platform on AWS CDK with REST APIs on API Gateway, integrated with the CacheInvest API for share switching and withdrawals.",
       result:
-        "Enabled 1,000+ users to trade with 95% uptime and a stable, scalable foundation for growth.",
+        "Enabled 1,000+ users to trade shares on a stable, scalable foundation.",
       image: "/images/projects/microinvesting/3.png",
       images: [
         "/images/projects/microinvesting/1.png",
@@ -172,16 +202,16 @@ const Projects = () => {
       ],
       liveUrl: "",
       githubUrl: "#",
-      period: "Oct 2023 – Dec 2024",
+      period: "Oct 2023 – Jun 2024",
     },
     {
       title: "Huntavino - Winery Management",
       challenge:
         "Wineries needed one place to manage operations and promote events to customers.",
       solution:
-        "I built a winery management platform (React) and a user-facing event portal (Next.js) on AWS Amplify.",
+        "I built a winery management platform (React) and a public event portal (Next.js) with AWS Amplify auth, GraphQL APIs and hosting.",
       result:
-        "Onboarded 50+ wineries and reduced load times by 20% so staff and customers get a smoother experience.",
+        "Onboarded 50+ wineries and reduced load times by 20% by optimising DynamoDB queries.",
       image:
         "/images/projects/winery%20management%20and%20user%20websie/screencapture-dev-d3hkunjm2hdgb0-amplifyapp-events-2023-12-17-12_46_26.png",
       images: [
@@ -191,7 +221,7 @@ const Projects = () => {
         "/images/projects/winery%20management%20and%20user%20websie/screencapture-master-d37agnqt2gmdl8-amplifyapp-2024-04-24-10_37_36.png",
       ],
       category: "Full Stack",
-      technologies: ["React.js", "Next.js", "AWS Amplify", "DynamoDB"],
+      technologies: ["React.js", "Next.js", "AWS Amplify", "GraphQL", "DynamoDB"],
       liveUrl: "",
       githubUrl: "#",
       period: "Dec 2022 – Feb 2024",
@@ -298,7 +328,7 @@ const Projects = () => {
                 className={`px-6 py-2 rounded-full font-medium transition-all duration-200 ${
                   selectedCategory === category
                     ? "bg-primary-600 text-white shadow-lg"
-                    : "bg-white text-gray-700 hover:bg-primary-50 border border-gray-200"
+                    : "bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-300 hover:bg-primary-50 dark:hover:bg-slate-700 border border-gray-200 dark:border-slate-600"
                 }`}
               >
                 {category}
@@ -567,19 +597,19 @@ const Projects = () => {
                     !selectedProject.solution ||
                     !selectedProject.result) &&
                     selectedProject.description && (
-                      <p className="text-gray-700 text-sm leading-relaxed">
+                      <p className="text-gray-700 dark:text-slate-300 text-sm leading-relaxed">
                         {selectedProject.description}
                       </p>
                     )}
                   <div>
-                    <p className="font-semibold text-gray-800 mb-2">
+                    <p className="font-semibold text-gray-800 dark:text-slate-100 mb-2">
                       Technologies
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {selectedProject.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="text-xs bg-primary-100 text-primary-700 px-2 py-1 rounded"
+                          className="text-xs bg-primary-100 dark:bg-primary-900/50 text-primary-700 dark:text-primary-300 px-2 py-1 rounded"
                         >
                           {tech}
                         </span>
@@ -593,7 +623,7 @@ const Projects = () => {
                           href={selectedProject.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium text-sm"
+                          className="flex items-center gap-2 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium text-sm"
                         >
                           <ExternalLink className="w-4 h-4" />
                           Live Demo

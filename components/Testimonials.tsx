@@ -31,29 +31,6 @@ const testimonials = [
   },
   {
     quote:
-      "Overall you have done a really good job, Thank you so much for your help, highly recommend your service, Thanks!",
-    name: "Brian",
-    role: "Project Owner · Fiverr",
-  },
-  {
-    quote:
-      "Expert in JS and jQuery! Fixed my JS file and counteroffered half the price of my initial offer! Understands the project and works with a realistic timeline and budget. Did more than I even asked, he fixed the bugs and also optimized it.",
-    name: "Soney",
-    role: "Project Owner · Fiverr",
-  },
-  {
-    quote: "Good communication, great service.",
-    name: "Jean F Beaulieu",
-    role: "Project Owner · Fiverr",
-  },
-  {
-    quote:
-      "Great seller. Easily understood the request and completed with quality and on time. Well recommend.",
-    name: "Kendo",
-    role: "Project Owner · Fiverr",
-  },
-  {
-    quote:
       "Sometimes it's hard to explain and communicate what we want a script/code to work, but this seller understands, is nice and smart. You just explained a bit, he understood everything!",
     name: "Farislui",
     role: "Project Owner · Fiverr",

@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code, Users, Rocket, Award } from "lucide-react";
+import { Code, Building2, Grape, TrendingUp } from "lucide-react";
 
 const About = () => {
   const stats = [
-    { icon: Code, number: "6+", label: "Years Experience" },
-    { icon: Users, number: "10+", label: "Projects Delivered" },
-    { icon: Rocket, number: "4+", label: "Companies Worked With" },
-    { icon: Award, number: "100%", label: "Client Satisfaction" },
+    { icon: Code, number: "6+", label: "Years shipping production apps" },
+    { icon: Building2, number: "20+", label: "Clinics on a medical platform I built" },
+    { icon: Grape, number: "50+", label: "Wineries onboarded" },
+    { icon: TrendingUp, number: "1,000+", label: "Investors trading on a platform I built" },
   ];
 
   return (
@@ -28,12 +28,12 @@ const About = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary-600 to-primary-400 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 dark:text-slate-400 max-w-3xl mx-auto">
-            Senior Full Stack Developer with 6+ years of experience specializing
-            in MERN stack and AWS Amplify
+            Senior Full Stack Developer specialising in React/Next.js, Node.js,
+            AWS serverless and LLM integration
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -45,27 +45,22 @@ const About = () => {
             </h3>
             <div className="space-y-4 text-gray-600 dark:text-slate-400 leading-relaxed">
               <p>
-                I&apos;m a Senior Full Stack Developer with 6+ years of
-                experience building scalable web applications and collaborating
-                with technical teams. I specialize in MERN stack development and
-                AWS Amplify, delivering robust solutions that optimize
-                performance and maintain hands-on coding contributions.
+                I&apos;m a Senior Full Stack Developer with 6+ years shipping
+                production web apps, APIs and AI features for remote teams in
+                Australia and the UAE, including products used by 20+ clinics,
+                50+ wineries and 1,000+ investors.
               </p>
               <p>
-                Throughout my career, I&apos;ve engineered scalable medical
-                applications serving 20+ clinics, developed winery management
-                platforms, architected investing platforms, and built research
-                collaboration tools. My work focuses on creating applications
-                that not only meet business requirements but also exceed
-                performance expectations.
+                I specialise in React/Next.js, Node.js, AWS serverless and LLM
+                integration (OpenAI, Gemini). Recently I&apos;ve built AI
+                research features (PDF analysis, long-form research reports,
+                citation import) and extended a multi-country PHP/MySQL CMS and
+                the APIs behind its mobile app.
               </p>
               <p>
-                I&apos;m passionate about mentoring junior developers, achieving
-                high test coverage, and implementing best practices. I&apos;m
-                also expanding my backend toolkit. I&apos;ve completed Python
-                fundamentals and successfully migrated an application from
-                Node.js to FastAPI, demonstrating my ability to adapt and
-                deliver across different technology stacks.
+                I own features end to end, from database and API to frontend and
+                deployment, and ship changes safely into live systems. I also
+                mentor junior developers through code reviews.
               </p>
             </div>
           </motion.div>
@@ -98,22 +93,6 @@ const About = () => {
           </motion.div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-gradient-to-r from-primary-600 to-primary-500 dark:from-primary-700 dark:to-primary-600 rounded-2xl p-8 md:p-12 text-white"
-        >
-          <h3 className="text-2xl md:text-3xl font-bold mb-4">My Mission</h3>
-          <p className="text-lg md:text-xl leading-relaxed opacity-95">
-            To deliver high-quality, scalable solutions that exceed client
-            expectations. I&apos;m committed to optimizing performance,
-            achieving high test coverage, and mentoring the next generation of
-            developers. My goal is to build applications that make a real impact
-            while maintaining code quality and best practices.
-          </p>
-        </motion.div>
       </div>
     </section>
   );

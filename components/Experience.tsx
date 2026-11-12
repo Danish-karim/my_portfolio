@@ -3,16 +3,80 @@
 import { motion } from "framer-motion";
 import { Calendar, MapPin, Briefcase } from "lucide-react";
 
+type Experience = {
+  company: string;
+  position: string;
+  period: string;
+  location: string;
+  description?: string[];
+  projects?: { name: string; period: string; description: string[] }[];
+};
+
+const Bullets = ({ items }: { items: string[] }) => (
+  <ul className="space-y-2">
+    {items.map((item, itemIndex) => (
+      <li
+        key={itemIndex}
+        className="text-gray-600 dark:text-slate-400 text-sm leading-relaxed flex items-start gap-2"
+      >
+        <span className="text-primary-600 dark:text-primary-400 mt-1">•</span>
+        <span>{item}</span>
+      </li>
+    ))}
+  </ul>
+);
+
 const Experience = () => {
-  const experiences = [
+  const experiences: Experience[] = [
     {
-      company: "ResearchCollab",
+      company: "Pine Technologies",
       position: "Full Stack Developer",
-      period: "Sep 2024 – Dec 2025",
-      location: "Remote (UAE)",
+      period: "Aug 2024 – Present",
+      location: "Remote",
+      projects: [
+        {
+          name: "Global CMS & Content API Platform",
+          period: "Jul 2026 – Present",
+          description: [
+            "Develop features for a long-running PHP/MySQL CMS and REST APIs serving a public website and native mobile app across multiple countries and languages (Docker-based environments)",
+            "Built page-level permissions scoped by content type, organisation and geography (region → country → area), reusing the existing access model",
+            "Delivered a new block-based content type by reusing the existing page builder, with translations inheriting layout from the live master version",
+            "Extend mobile app APIs for content, announcements and fitness challenge leaderboards and stats",
+            "Work across publishing, translation workflows, Typesense search indexing and caching in a live production system",
+          ],
+        },
+        {
+          name: "ResearchCollab – AI Research Platform & Browser Extension (UAE client, in production)",
+          period: "Sep 2024 – Dec 2025",
+          description: [
+            "Built AI features for a production research platform (Next.js, Node.js/Express, PostgreSQL/Supabase, Docker) using OpenAI GPT-4o-mini and Google Gemini 2.0/2.5, including paper analysis that turns uploaded PDFs into metadata, summaries and insights",
+            "Built a Deep Research assistant that generates long-form research reports with Gemini 2.5 Pro, with saved history per user",
+            "Built AI reference auto-import: extracts citations from text, finds papers via Semantic Scholar, Google Scholar and Crossref, and runs on BullMQ/Redis queues with live WebSocket progress",
+            "Built Topic Explorer (AI news, web search, topic analysis), scheduled daily trend digests, and reusable AI prompt templates users run against their papers",
+            "Built a cross-browser extension (Chrome, Firefox, Safari; React, Vite, Supabase) that saves Google Scholar papers as AI-processed PDFs, with Google OAuth and 2FA",
+            "Cut real-time sync times by 50% using Supabase WebSockets",
+          ],
+        },
+      ],
+    },
+    {
+      company: "MicroInvesting",
+      position: "Full Stack Developer (Contract)",
+      period: "Oct 2023 – Jun 2024",
+      location: "Remote (Australia)",
       description: [
-        "Built a research collaboration web app (Next.js) and cross-browser extension (React.js, Vite, Supabase)",
-        "Enhanced real-time collaboration with Supabase WebSockets, cutting sync times by 50%",
+        "Built an investing platform on AWS CDK enabling 1,000+ users to trade shares via the CacheInvest API",
+        "Designed REST APIs on API Gateway for share switching and withdrawals",
+      ],
+    },
+    {
+      company: "Huntavino",
+      position: "Full Stack Developer (Contract)",
+      period: "Dec 2022 – Feb 2024",
+      location: "Remote (Australia)",
+      description: [
+        "Built a winery management platform (React) and public event portal (Next.js), onboarding 50+ wineries with AWS Amplify auth, GraphQL APIs and hosting",
+        "Reduced load times by 20% by optimising DynamoDB queries",
       ],
     },
     {
@@ -21,30 +85,10 @@ const Experience = () => {
       period: "Nov 2021 – May 2024",
       location: "Remote (Australia)",
       description: [
-        "Engineered a scalable medical application serving 20+ clinics and 200+ daily patient check-ins using React.js, AWS Amplify, and serverless architecture",
-        "Slashed reporting delays by 30% by integrating Slack notifications for cardiologists",
-        "Mentored 2 junior developers in React/Node.js, improving team productivity by 25%",
-        "Achieved 85% unit test coverage (Jest) for critical modules, reducing post-deployment bugs by 40%",
-      ],
-    },
-    {
-      company: "MicroInvesting",
-      position: "Full Stack Developer",
-      period: "Oct 2023 – Dec 2024",
-      location: "Remote (Australia)",
-      description: [
-        "Architected an investing platform using AWS CDK, enabling 1,000+ users to trade shares via CacheInvest API",
-        "Designed RESTful APIs (API Gateway) with 95% uptime, streamlining share switching/withdrawals",
-      ],
-    },
-    {
-      company: "Huntavino",
-      position: "Full Stack Developer",
-      period: "Dec 2022 – Feb 2024",
-      location: "Remote (Australia)",
-      description: [
-        "Developed a winery management platform (React.js) and user-facing event portal (Next.js), onboarding 50+ wineries",
-        "Optimized DynamoDB queries to reduce load times by 20%",
+        "Built a medical application used by 20+ clinics for 200+ daily patient check-ins (React, AWS Amplify, GraphQL, Lambda, DynamoDB, SNS/SQS)",
+        "Cut reporting delays by 30% with Slack notifications for cardiologists",
+        "Reached 85% Jest coverage on critical modules, reducing post-release bugs by 40%",
+        "Mentored 2 junior developers in React/Node.js through code reviews",
       ],
     },
   ];
@@ -80,7 +124,7 @@ const Experience = () => {
           <div className="space-y-12">
             {experiences.map((exp, index) => (
               <motion.div
-                key={index}
+                key={exp.company}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -113,7 +157,7 @@ const Experience = () => {
                       <Briefcase className="w-6 h-6 text-primary-400" />
                     </div>
 
-                    <div className="flex items-center gap-4 mb-4 text-sm text-gray-600 dark:text-slate-400">
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-4 text-sm text-gray-600 dark:text-slate-400">
                       <div className="flex items-center gap-2">
                         <Calendar className="w-4 h-4" />
                         <span>{exp.period}</span>
@@ -124,19 +168,22 @@ const Experience = () => {
                       </div>
                     </div>
 
-                    <ul className="space-y-2">
-                      {exp.description.map((item, itemIndex) => (
-                        <li
-                          key={itemIndex}
-                          className="text-gray-600 dark:text-slate-400 text-sm leading-relaxed flex items-start gap-2"
-                        >
-                          <span className="text-primary-600 dark:text-primary-400 mt-1">
-                            •
-                          </span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    {exp.description && <Bullets items={exp.description} />}
+                    {exp.projects && (
+                      <div className="space-y-5">
+                        {exp.projects.map((project) => (
+                          <div key={project.name}>
+                            <p className="text-sm font-semibold text-gray-800 dark:text-slate-200">
+                              {project.name}
+                            </p>
+                            <p className="text-xs text-primary-600 dark:text-primary-400 font-medium mb-2">
+                              {project.period}
+                            </p>
+                            <Bullets items={project.description} />
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               </motion.div>
